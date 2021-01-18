@@ -106,14 +106,14 @@ describe("talk to pet if feeding and walking needed", () => {
         expect(pet.checkUp()).toBe("I am hungry");
     });
 
-    it("checkUp both", () => {
+    it("checkUp both if both needed", () => {
         pet.fitness = 1;
         pet.hunger = 6;
 
         expect(pet.checkUp()).toBe("I am hungry AND I need a walk");
     });
 
-    it("checkUp both", () => {
+    it("checkUp both if none needed", () => {
         pet.fitness = 4;
         pet.hunger = 4;
 
@@ -152,5 +152,14 @@ describe("shows how the pet is feeling", () => {
         pet.age = 15;
     
         expect(pet.isAlive).toBe(true)
+    });
+});
+
+describe("add a child to your pet", () => {
+    it("check adoptedChild", () => {
+        const child = new Pet("Amelia");
+    
+        expect(pet.adoptedChild(child)).toBe(1)
+        expect(pet.children[0].name).toEqual("Amelia")
     });
 });

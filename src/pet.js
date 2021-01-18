@@ -1,8 +1,9 @@
-function Pet (name, age, hunger, fitness) {
+function Pet (name, age, hunger, fitness, children) {
     this.name = name;
     this.age = 0;
     this.hunger = 0;
     this.fitness = 10;
+    this.children = [];
 };
 
 Pet.prototype = {
@@ -70,7 +71,11 @@ Pet.prototype = {
             return "I am hungry AND I need a walk";
         };
         return "I feel great!"
-    }
-};
+    },
 
+    adoptedChild(children) {
+        return this.children.push(children);
+    }
+    
+};
 module.exports = Pet;
